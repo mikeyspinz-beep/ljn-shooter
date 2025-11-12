@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="no-referrer">
+    <title>LJN Shooter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+<style>
+      body {
+        font-family: 'Press Start 2P', cursive;
+      }
+
+      @keyframes explosion {
+        from {
+          transform: scale(0.5) translate(-50%, -50%);
+          opacity: 1;
+        }
+        to {
+          transform: scale(2) translate(-50%, -50%);
+          opacity: 0;
+        }
+      }
+      .explosion {
+        animation: explosion 0.4s ease-out forwards;
+      }
+
+      @keyframes text-pop-out {
+        0% { transform: translate(-50%, -50%) scale(0.5) rotate(-15deg); opacity: 0; }
+        40% { transform: translate(-50%, -50%) scale(1.2) rotate(5deg); opacity: 1; }
+        80% { transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1; }
+        100% { transform: translate(-50%, -50%) scale(0.8) rotate(0deg); opacity: 0; }
+      }
+      .text-pop-out {
+        animation: text-pop-out 1.5s ease-in-out forwards;
+      }
+
+      @keyframes shake {
+        0% { transform: translate(1px, 1px) rotate(0deg); }
+        10% { transform: translate(-1px, -2px) rotate(-1deg); }
+        20% { transform: translate(-3px, 0px) rotate(1deg); }
+        30% { transform: translate(3px, 2px) rotate(0deg); }
+        40% { transform: translate(1px, -1px) rotate(1deg); }
+        50% { transform: translate(-1px, 2px) rotate(-1deg); }
+        60% { transform: translate(-3px, 1px) rotate(0deg); }
+        70% { transform: translate(3px, 1px) rotate(-1deg); }
+        80% { transform: translate(-1px, -1px) rotate(1deg); }
+        90% { transform: translate(1px, 2px) rotate(0deg); }
+        100% { transform: translate(0, 0) rotate(0deg); }
+      }
+      .animate-shake {
+        animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+      }
+
+      @keyframes float-up {
+        0% {
+          transform: translateY(0) scale(1);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-60px) scale(1.5);
+          opacity: 0;
+        }
+      }
+      .float-up {
+        animation: float-up 1.2s ease-out forwards;
+      }
+
+      @keyframes headshot-pop {
+        0% { transform: translateY(0) scale(0.5); opacity: 0; }
+        30% { transform: translateY(-20px) scale(1.6); opacity: 1; }
+        100% { transform: translateY(-90px) scale(0.8); opacity: 0; }
+      }
+      .headshot-pop {
+        animation: headshot-pop 1s ease-out forwards;
+      }
+    </style>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
